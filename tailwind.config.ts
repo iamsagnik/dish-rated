@@ -65,8 +65,8 @@ export default {
 				},
 				foodtruck: {
 					slate: '#536878',
-					teal: '#4A6670',
-					gold: '#D4AF37',
+					teal: '#d44c50',  // Changed from #4A6670 to #d44c50 (coral red)
+					gold: '#ffcd00',  // Changed from #D4AF37 to #ffcd00 (bright yellow)
 					lightgray: '#F5F5F5',
 					darkgray: '#333333'
 				}

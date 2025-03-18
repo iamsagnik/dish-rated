@@ -5,17 +5,17 @@ import { MapPin, Mail, Phone, Instagram, Twitter, Facebook, Youtube } from 'luci
 
 const Footer = () => {
   return (
-    <footer className="bg-foodtruck-slate text-white pt-16 pb-8">
+    <footer className="bg-foodtruck-teal text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: Logo and About */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                <MapPin className="h-5 w-5 text-foodtruck-slate" />
+                <MapPin className="h-5 w-5 text-foodtruck-teal" />
               </div>
               <span className="font-serif text-2xl font-bold tracking-tight text-white">
-                StreetEats
+                DishRated
               </span>
             </div>
             <p className="text-sm text-white/80 leading-relaxed">
@@ -122,7 +122,7 @@ const Footer = () => {
               </div>
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-white text-foodtruck-slate rounded-lg font-medium hover:bg-foodtruck-gold hover:text-white transition-colors button-pulse"
+                className="w-full px-4 py-2 bg-foodtruck-gold text-foodtruck-slate rounded-lg font-medium hover:bg-white hover:text-foodtruck-teal transition-colors button-pulse"
               >
                 Subscribe
               </button>
@@ -133,7 +133,7 @@ const Footer = () => {
         <div className="border-t border-white/20 mt-10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-white/60 mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} StreetEats. All rights reserved.
+              &copy; {new Date().getFullYear()} DishRated. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link to="/privacy" className="text-sm text-white/60 hover:text-white transition-colors">
