@@ -42,7 +42,7 @@ const Navbar = () => {
             <MapPin className="h-5 w-5 text-white" />
           </div>
           <span className="font-serif text-2xl font-bold tracking-tight text-foodtruck-slate">
-            StreetEats
+            DishRated
           </span>
         </Link>
 
@@ -155,7 +155,7 @@ const Navbar = () => {
             <div className="pt-2 flex flex-col space-y-2">
               <Link 
                 to="/vendor-login" 
-                className="inline-flex items-center justify-center rounded-full border border-foodtruck-teal px-4 py-2 text-sm font-medium text-foodtruck-teal hover:bg-foodtruck-teal hover:text-white transition-colors"
+                className="inline-flex items-center justify-center rounded-full border border-foodtruck-teal px-4 py-1.5 text-sm font-medium text-foodtruck-teal hover:bg-foodtruck-teal hover:text-white transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 <Lock className="mr-1.5 h-3.5 w-3.5" />
@@ -163,7 +163,7 @@ const Navbar = () => {
               </Link>
               <Link 
                 to="/profile" 
-                className="inline-flex items-center justify-center rounded-full bg-foodtruck-teal px-4 py-2 text-sm font-medium text-white hover:bg-foodtruck-slate transition-colors"
+                className="inline-flex items-center justify-center rounded-full bg-foodtruck-teal px-4 py-1.5 text-sm font-medium text-white hover:bg-foodtruck-slate transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 <User className="mr-1.5 h-3.5 w-3.5" />
