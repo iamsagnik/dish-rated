@@ -140,8 +140,8 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-foodtruck-slate/30 via-transparent to-transparent"></div>
               </div>
               
-              {/* Floating elements */}
-              <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 transform -rotate-3 animate-float border border-transparent hover:border-foodtruck-gold/50 transition-all duration-300">
+              {/* Floating elements - Top Rated made to move slower */}
+              <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 transform -rotate-3 animate-float" style={{ animationDuration: '6s' }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
                     <span className="text-white font-bold">4.9</span>

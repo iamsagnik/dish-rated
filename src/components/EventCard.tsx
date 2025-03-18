@@ -3,6 +3,7 @@ import React from 'react';
 import { Calendar, MapPin, Users, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import { toast } from '@/components/ui/use-toast';
 
 interface EventCardProps {
   id: string;
@@ -23,10 +24,26 @@ const EventCard = ({
   truckCount,
   className,
 }: EventCardProps) => {
+  const handleViewDetails = () => {
+    toast({
+      title: "Event Details",
+      description: `Viewing details for "${title}" (Coming soon)`,
+    });
+  };
+
+  const handleNotifyMe = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    toast({
+      title: "Notification Set",
+      description: `You'll be notified about updates for "${title}"`,
+    });
+  };
+
   return (
     <div 
+      onClick={handleViewDetails}
       className={cn(
-        "relative group overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300",
+        "relative group overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 cursor-pointer",
         "hover:shadow-xl hover:-translate-y-1 hover:-rotate-1",
         className
       )}
@@ -64,11 +81,17 @@ const EventCard = ({
         </div>
         
         <div className="flex justify-between items-center">
-          <button className="text-sm font-medium text-foodtruck-teal hover:text-foodtruck-slate transition-colors">
+          <button 
+            onClick={handleViewDetails}
+            className="text-sm font-medium text-foodtruck-teal hover:text-foodtruck-slate transition-colors"
+          >
             View Details
           </button>
           
-          <button className="inline-flex items-center rounded-full border border-foodtruck-teal px-3 py-1 text-xs font-medium text-foodtruck-teal hover:bg-foodtruck-teal hover:text-white transition-colors">
+          <button 
+            onClick={handleNotifyMe}
+            className="inline-flex items-center rounded-full border border-foodtruck-teal px-3 py-1 text-xs font-medium text-foodtruck-teal hover:bg-foodtruck-teal hover:text-white transition-colors"
+          >
             <Bell className="mr-1 h-3 w-3" />
             Notify Me
           </button>

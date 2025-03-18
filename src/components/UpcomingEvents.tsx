@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import EventCard from './EventCard';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Mock data for upcoming events
 const upcomingEvents = [
@@ -114,9 +115,9 @@ const UpcomingEvents = () => {
         </div>
         
         <div className="mt-8 text-center">
-          <button className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foodtruck-teal text-white font-medium shadow-lg hover:bg-foodtruck-slate transition-colors">
+          <Link to="/events" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foodtruck-teal text-white font-medium shadow-lg hover:bg-foodtruck-slate transition-colors">
             View All Events
-          </button>
+          </Link>
         </div>
       </div>
     </section>
