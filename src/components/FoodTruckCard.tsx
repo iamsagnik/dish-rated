@@ -42,41 +42,42 @@ const FoodTruckCard = ({
     >
       {featured && (
         <div className="absolute top-3 left-3 z-10">
-          <span className="inline-flex items-center rounded-full bg-foodtruck-gold/90 backdrop-blur-sm px-2.5 py-1 text-xs font-medium text-white">
+          <span className="inline-flex items-center rounded-full bg-foodtruck-gold/90 backdrop-blur-sm px-2.5 py-1 text-xs font-medium text-foodtruck-slate">
             Featured
           </span>
         </div>
       )}
       
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden group">
         <img 
           src={image} 
           alt={name}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <button className="absolute top-3 right-3 p-1.5 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors duration-300">
-          <Heart className="h-5 w-5 text-foodtruck-slate hover:text-foodtruck-teal transition-colors duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+        <button className="absolute top-3 right-3 p-1.5 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors duration-300 group">
+          <Heart className="h-5 w-5 text-foodtruck-slate group-hover:text-foodtruck-teal transition-colors duration-300" />
         </button>
         
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+        <div className="absolute bottom-0 left-0 right-0 p-4">
           <div className="flex justify-between items-end">
             <div>
-              <span className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-sm px-2.5 py-0.5 text-xs font-medium text-white">
+              <span className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-sm px-2.5 py-0.5 text-xs font-medium text-white border border-transparent group-hover:border-foodtruck-gold/50 transition-all duration-300">
                 {cuisine}
               </span>
             </div>
-            <div className="flex items-center text-white">
-              <Star className="h-4 w-4 text-foodtruck-gold mr-1" />
+            <div className="flex items-center text-white bg-foodtruck-gold/80 px-2 py-0.5 rounded-full">
+              <Star className="h-4 w-4 text-white mr-1" />
               <span className="text-sm font-medium">{rating.toFixed(1)}</span>
-              <span className="text-xs ml-1 text-white/70">({reviewCount})</span>
+              <span className="text-xs ml-1 text-white/90">({reviewCount})</span>
             </div>
           </div>
         </div>
       </div>
       
-      <div className="p-4">
+      <div className="p-4 border-t-2 border-transparent group-hover:border-foodtruck-gold/30 transition-colors duration-300">
         <Link to={`/trucks/${id}`}>
-          <h3 className="font-serif text-lg font-medium text-foodtruck-slate mb-2 hover:text-foodtruck-teal transition-colors">
+          <h3 className="font-serif text-lg font-medium text-foodtruck-slate mb-2 hover:text-foodtruck-teal transition-colors gold-underline">
             {name}
           </h3>
         </Link>
@@ -117,7 +118,7 @@ const FoodTruckCard = ({
             </span>
           )}
           
-          <button className="text-foodtruck-teal font-medium hover:text-foodtruck-slate transition-colors text-sm">
+          <button className="text-foodtruck-teal font-medium hover:text-foodtruck-gold transition-colors duration-300 text-sm">
             View Details
           </button>
         </div>

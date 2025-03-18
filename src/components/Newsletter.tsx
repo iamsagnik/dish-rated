@@ -30,13 +30,17 @@ const Newsletter = () => {
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-foodtruck-teal/5 to-foodtruck-lightgray/50 z-0"></div>
       
+      {/* Add decorative elements using the gold color */}
+      <div className="absolute top-20 right-20 w-32 h-32 bg-foodtruck-gold/5 rounded-full animate-float"></div>
+      <div className="absolute bottom-20 left-20 w-24 h-24 bg-foodtruck-gold/10 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-2 text-foodtruck-teal">
-            <Send className="h-6 w-6 mx-auto" />
+            <Send className="h-6 w-6 mx-auto hover:text-foodtruck-gold transition-colors duration-300" />
           </div>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foodtruck-slate mb-4">
-            Get Foodie Updates
+            Get <span className="text-foodtruck-gold">Foodie</span> Updates
           </h2>
           <p className="text-foodtruck-slate/80 mb-8">
             Subscribe to our newsletter for the latest food truck news, event announcements, and exclusive deals.
@@ -51,7 +55,7 @@ const Newsletter = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address"
                   required
-                  className="w-full px-4 py-3 rounded-full border border-foodtruck-slate/20 focus:outline-none focus:ring-2 focus:ring-foodtruck-teal/50 focus:border-transparent"
+                  className="w-full px-4 py-3 rounded-full border border-foodtruck-slate/20 focus:outline-none focus:ring-2 focus:ring-foodtruck-gold/50 focus:border-transparent transition-all duration-300"
                   disabled={isSubmitting || isSubmitted}
                 />
               </div>
@@ -62,7 +66,7 @@ const Newsletter = () => {
                   "px-6 py-3 rounded-full font-medium shadow-lg transition-all duration-300",
                   isSubmitted
                     ? "bg-green-500 text-white"
-                    : "bg-foodtruck-teal text-white hover:bg-foodtruck-slate"
+                    : "bg-foodtruck-teal text-white hover:bg-foodtruck-slate relative overflow-hidden group"
                 )}
               >
                 {isSubmitting ? (
@@ -81,7 +85,10 @@ const Newsletter = () => {
                     Subscribed!
                   </span>
                 ) : (
-                  "Get Foodie Updates"
+                  <>
+                    <span className="relative z-10">Get Foodie Updates</span>
+                    <span className="absolute bottom-0 left-0 w-full h-0 bg-foodtruck-gold transition-all duration-300 group-hover:h-full"></span>
+                  </>
                 )}
               </button>
             </div>

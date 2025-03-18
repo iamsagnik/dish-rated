@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -112,6 +113,31 @@
   .feature-icon {
     @apply text-foodtruck-teal hover:text-foodtruck-gold transition-all duration-300 hover:scale-110;
   }
+
+  /* New highlight classes using the gold color */
+  .gold-highlight {
+    @apply border-b-2 border-foodtruck-gold;
+  }
+  
+  .gold-glow {
+    @apply hover:shadow-[0_0_15px_rgba(255,205,0,0.5)] transition-all duration-300;
+  }
+  
+  .gold-hover {
+    @apply hover:text-foodtruck-gold transition-colors duration-300;
+  }
+  
+  .gold-border-hover {
+    @apply hover:border-foodtruck-gold border transition-colors duration-300;
+  }
+  
+  .gold-scale {
+    @apply hover:scale-105 hover:text-foodtruck-gold transition-all duration-300;
+  }
+  
+  .gold-gradient {
+    @apply bg-gradient-to-r from-foodtruck-teal to-foodtruck-gold bg-clip-text text-transparent;
+  }
 }
 
 /* Custom Font Classes */
@@ -145,3 +171,37 @@ html {
   height: 100%;
   min-height: 400px;
 }
+
+/* Gold highlight effect for active elements */
+.active-gold {
+  @apply relative after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-0.5 after:bg-foodtruck-gold;
+}
+
+/* Gold underline animation */
+.gold-underline {
+  @apply relative;
+}
+
+.gold-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-foodtruck-gold transition-all duration-300;
+}
+
+.gold-underline:hover::after {
+  @apply w-full;
+}
+
+/* Button with gold accent */
+.btn-gold-accent {
+  @apply relative overflow-hidden;
+}
+
+.btn-gold-accent::before {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-1 bg-foodtruck-gold transform translate-y-full transition-transform duration-300;
+}
+
+.btn-gold-accent:hover::before {
+  @apply transform translate-y-0;
+}
+

@@ -44,8 +44,8 @@ const Hero = () => {
       
       {/* Decorative circles */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-foodtruck-teal/5 rounded-full animate-float"></div>
-      <div className="absolute top-20 -left-20 w-64 h-64 bg-foodtruck-gold/5 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-10 right-1/4 w-48 h-48 bg-foodtruck-teal/5 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-20 -left-20 w-64 h-64 bg-foodtruck-gold/10 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute bottom-10 right-1/4 w-48 h-48 bg-foodtruck-gold/5 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
       
       {/* Content container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -80,7 +80,7 @@ const Hero = () => {
                   onChange={(e) => setSearchValue(e.target.value)}
                   onFocus={handleSearchFocus}
                   onBlur={handleSearchBlur}
-                  className="hero-search block w-full pl-10 pr-12 py-3 border border-foodtruck-slate/20 rounded-full bg-white/80 backdrop-blur-sm shadow-lg text-foodtruck-slate placeholder:text-foodtruck-slate/50 focus:outline-none focus:ring-2 focus:ring-foodtruck-teal/50"
+                  className="hero-search block w-full pl-10 pr-12 py-3 border border-foodtruck-slate/20 rounded-full bg-white/80 backdrop-blur-sm shadow-lg text-foodtruck-slate placeholder:text-foodtruck-slate/50 focus:outline-none focus:ring-2 focus:ring-foodtruck-gold/70 transition-all"
                   placeholder="Find food trucks near you..."
                 />
                 {searchValue && (
@@ -94,7 +94,7 @@ const Hero = () => {
                 <button
                   className="absolute inset-y-0 right-0 flex items-center pr-4"
                 >
-                  <MapPin className="h-5 w-5 text-foodtruck-teal" />
+                  <MapPin className="h-5 w-5 text-foodtruck-teal hover:text-foodtruck-gold transition-colors duration-300" />
                 </button>
               </div>
               
@@ -107,8 +107,8 @@ const Hero = () => {
                     className={cn(
                       "px-3 py-1 rounded-full text-sm font-medium transition-all duration-300",
                       selectedFilter === filter.id
-                        ? "bg-foodtruck-teal text-white shadow-md"
-                        : "bg-white/80 text-foodtruck-slate/80 hover:bg-foodtruck-teal/10 hover:text-foodtruck-teal"
+                        ? "bg-foodtruck-gold text-foodtruck-slate shadow-md"
+                        : "bg-white/80 text-foodtruck-slate/80 hover:bg-foodtruck-gold/20 hover:text-foodtruck-slate border border-transparent hover:border-foodtruck-gold/30"
                     )}
                   >
                     {filter.label}
@@ -118,10 +118,10 @@ const Hero = () => {
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-                <button className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foodtruck-teal text-white font-medium shadow-lg hover:bg-foodtruck-slate transition-colors button-pulse">
+                <button className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foodtruck-teal text-white font-medium shadow-lg hover:bg-foodtruck-teal/90 transition-all duration-300 btn-gold-accent">
                   Find Trucks Near You
                 </button>
-                <button className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-foodtruck-teal text-foodtruck-teal font-medium hover:bg-foodtruck-teal hover:text-white transition-colors">
+                <button className="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-foodtruck-gold text-foodtruck-slate font-medium hover:bg-foodtruck-gold/10 transition-all duration-300 gold-glow">
                   View Live Map
                 </button>
               </div>
@@ -131,7 +131,7 @@ const Hero = () => {
           {/* Hero Illustration */}
           <div className="lg:w-1/2 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <div className="relative">
-              <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+              <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-transparent hover:border-foodtruck-gold/30 transition-all duration-500 gold-glow">
                 <img
                   src="https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
                   alt="Food truck illustration"
@@ -141,7 +141,7 @@ const Hero = () => {
               </div>
               
               {/* Floating elements */}
-              <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 transform -rotate-3 animate-float">
+              <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 transform -rotate-3 animate-float border border-transparent hover:border-foodtruck-gold/50 transition-all duration-300">
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
                     <span className="text-white font-bold">4.9</span>
@@ -153,9 +153,9 @@ const Hero = () => {
                 </div>
               </div>
               
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 transform rotate-3 animate-float" style={{ animationDelay: '1.5s' }}>
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 transform rotate-3 animate-float gold-border-hover" style={{ animationDelay: '1.5s' }}>
                 <div className="flex items-center space-x-2">
-                  <MapPin className="h-6 w-6 text-foodtruck-teal" />
+                  <MapPin className="h-6 w-6 text-foodtruck-teal group-hover:text-foodtruck-gold" />
                   <div>
                     <p className="text-xs font-medium text-foodtruck-slate">Live Tracking</p>
                     <p className="text-xs text-foodtruck-slate/70">12 trucks nearby</p>
