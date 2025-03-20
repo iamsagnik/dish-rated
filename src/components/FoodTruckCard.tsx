@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Heart, Star, Clock, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -25,7 +26,7 @@ const FoodTruckCard = ({
   rating,
   reviewCount,
   distance,
-  status = 'open',
+  status = 'open', // Default to open - most engaging for users
   featured = false,
   waitTime,
   className,
@@ -34,11 +35,12 @@ const FoodTruckCard = ({
     <div 
       className={cn(
         "relative overflow-hidden rounded-xl transition-all duration-300",
-        "hover:shadow-xl hover:-translate-y-1",
+        "hover:shadow-xl hover:-translate-y-1", // Nice subtle hover effect
         featured ? "bg-white shadow-lg" : "bg-white/80 backdrop-blur-sm shadow-md",
         className
       )}
     >
+      {/* Badge for featured trucks - helps them stand out */}
       {featured && (
         <div className="absolute top-3 left-3 z-10">
           <span className="inline-flex items-center rounded-full bg-foodtruck-gold/90 backdrop-blur-sm px-2.5 py-1 text-xs font-medium text-foodtruck-slate">
@@ -47,6 +49,7 @@ const FoodTruckCard = ({
         </div>
       )}
       
+      {/* Food truck image with hover zoom effect */}
       <div className="relative h-48 overflow-hidden group">
         <img 
           src={image} 
@@ -54,10 +57,13 @@ const FoodTruckCard = ({
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+        
+        {/* Favorite button */}
         <button className="absolute top-3 right-3 p-1.5 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors duration-300 group">
           <Heart className="h-5 w-5 text-foodtruck-slate group-hover:text-foodtruck-teal transition-colors duration-300" />
         </button>
         
+        {/* Bottom meta info */}
         <div className="absolute bottom-0 left-0 right-0 p-4">
           <div className="flex justify-between items-end">
             <div>
@@ -65,6 +71,7 @@ const FoodTruckCard = ({
                 {cuisine}
               </span>
             </div>
+            {/* Rating badge */}
             <div className="flex items-center text-white bg-foodtruck-gold/80 px-2 py-0.5 rounded-full">
               <Star className="h-4 w-4 text-white mr-1" />
               <span className="text-sm font-medium">{rating.toFixed(1)}</span>
@@ -74,6 +81,7 @@ const FoodTruckCard = ({
         </div>
       </div>
       
+      {/* Card content */}
       <div className="p-4 border-t-2 border-transparent group-hover:border-foodtruck-gold/30 transition-colors duration-300">
         <Link to={`/trucks/${id}`}>
           <h3 className="font-serif text-lg font-medium text-foodtruck-slate mb-2 hover:text-foodtruck-teal transition-colors gold-underline">
@@ -81,6 +89,7 @@ const FoodTruckCard = ({
           </h3>
         </Link>
         
+        {/* Status indicators - visual cues with text */}
         <div className="flex items-center justify-between text-sm mb-3">
           {status === 'open' && (
             <span className="flex items-center text-green-600">
@@ -101,6 +110,7 @@ const FoodTruckCard = ({
             </span>
           )}
           
+          {/* Current wait time if available */}
           {waitTime && (
             <span className="flex items-center text-foodtruck-slate text-xs">
               <Clock className="h-3.5 w-3.5 text-foodtruck-slate/70 mr-1" />
@@ -109,6 +119,7 @@ const FoodTruckCard = ({
           )}
         </div>
         
+        {/* Bottom meta info */}
         <div className="flex items-center justify-between text-sm">
           {distance && (
             <span className="flex items-center text-foodtruck-slate/80">

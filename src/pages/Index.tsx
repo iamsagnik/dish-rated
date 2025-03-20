@@ -10,18 +10,21 @@ import Newsletter from '@/components/Newsletter';
 import Footer from '@/components/Footer';
 
 const Index = () => {
-  // Smooth scroll to element function
+  // Smooth scroll helper - feels nicer than the abrupt jump
   const scrollToElement = (elementId: string) => {
     const element = document.getElementById(elementId);
     if (element) {
+      // Adding behavior:smooth for that nice scrolling effect
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   useEffect(() => {
-    // Check if URL has a hash and scroll to that section
+    // Handle deep linking - check if URL has a hash and scroll to section
+    // Added a small delay to ensure DOM is fully loaded
     if (window.location.hash) {
       const id = window.location.hash.substring(1);
+      // Small timeout to let everything render first
       setTimeout(() => {
         scrollToElement(id);
       }, 100);
@@ -33,8 +36,10 @@ const Index = () => {
       <Navbar />
       
       <main className="flex-grow">
+        {/* Hero section at the top */}
         <Hero />
         
+        {/* Main content sections with id anchors for navigation */}
         <div id="nearby-trucks">
           <NearbyTrucks />
         </div>
