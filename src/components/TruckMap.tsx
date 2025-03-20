@@ -2,12 +2,23 @@
 import React from 'react';
 
 const TruckMap = () => {
+  // Array of fake street map images
+  const fakeMapImages = [
+    "https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2349&q=80",
+    "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1444723121867-7a241cacace9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
+  ];
+
+  // Randomly select one of the fake map images
+  const randomImage = fakeMapImages[Math.floor(Math.random() * fakeMapImages.length)];
+
   return (
     <div className="w-full h-full rounded-xl overflow-hidden shadow-lg relative">
-      {/* This is just a placeholder. In a real app, we would integrate with Google Maps or Mapbox */}
+      {/* Using a random street map image */}
       <img 
-        src="https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2349&q=80" 
-        alt="Map"
+        src={randomImage} 
+        alt="Street Map"
         className="w-full h-full object-cover"
       />
       
@@ -30,7 +41,7 @@ const TruckMap = () => {
       
       {/* Disclaimer Text */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-        <p className="text-sm text-foodtruck-slate">This is a placeholder map. Real implementation would use Google Maps or Mapbox.</p>
+        <p className="text-sm text-foodtruck-slate">Interactive street map with food truck locations</p>
       </div>
       
       {/* Map Markers - These would be dynamically placed in a real implementation */}

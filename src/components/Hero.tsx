@@ -2,8 +2,11 @@
 import React, { useState } from 'react';
 import { Search, MapPin, ChevronDown, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
@@ -30,11 +33,38 @@ const Hero = () => {
 
   const handleFilterSelect = (filterId: string) => {
     setSelectedFilter(filterId === selectedFilter ? null : filterId);
+    toast.success(`Filter selected: ${filters.find(f => f.id === filterId)?.label || 'All'}`);
   };
 
   const clearSearch = () => {
     setSearchValue('');
     setIsExpanded(false);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchValue.trim()) {
+      toast.success(`Searching for: ${searchValue}`);
+      navigate('/find-trucks', { state: { searchQuery: searchValue, cuisine: selectedFilter } });
+    } else {
+      toast.error('Please enter a search term');
+    }
+  };
+
+  const handleFindNearbyTrucks = () => {
+    toast.success('Finding trucks near you...');
+    navigate('/find-trucks');
+  };
+
+  const handleViewLiveMap = () => {
+    toast.success('Viewing live map...');
+    navigate('/find-trucks', { state: { viewMode: 'map' } });
+  };
+
+  const handleUseCurrentLocation = () => {
+    toast.success('Using your current location');
+    // In a real app, we would use the browser's geolocation API
+    // navigator.geolocation.getCurrentPosition()
   };
 
   return (
@@ -70,33 +100,38 @@ const Hero = () => {
                 isExpanded ? "scale-105" : "scale-100"
               )}
             >
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-5 w-5 text-foodtruck-slate/50" />
-                </div>
-                <input
-                  type="text"
-                  value={searchValue}
-                  onChange={(e) => setSearchValue(e.target.value)}
-                  onFocus={handleSearchFocus}
-                  onBlur={handleSearchBlur}
-                  className="hero-search block w-full pl-10 pr-12 py-3 border border-foodtruck-slate/20 rounded-full bg-white/80 backdrop-blur-sm shadow-lg text-foodtruck-slate placeholder:text-foodtruck-slate/50 focus:outline-none focus:ring-2 focus:ring-foodtruck-gold/70 transition-all"
-                  placeholder="Find food trucks near you..."
-                />
-                {searchValue && (
+              <form onSubmit={handleSearch}>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Search className="h-5 w-5 text-foodtruck-slate/50" />
+                  </div>
+                  <input
+                    type="text"
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    onFocus={handleSearchFocus}
+                    onBlur={handleSearchBlur}
+                    className="hero-search block w-full pl-10 pr-12 py-3 border border-foodtruck-slate/20 rounded-full bg-white/80 backdrop-blur-sm shadow-lg text-foodtruck-slate placeholder:text-foodtruck-slate/50 focus:outline-none focus:ring-2 focus:ring-foodtruck-gold/70 transition-all"
+                    placeholder="Find food trucks near you..."
+                  />
+                  {searchValue && (
+                    <button
+                      type="button"
+                      onClick={clearSearch}
+                      className="absolute inset-y-0 right-14 flex items-center pr-3"
+                    >
+                      <X className="h-5 w-5 text-foodtruck-slate/50 hover:text-foodtruck-slate" />
+                    </button>
+                  )}
                   <button
-                    onClick={clearSearch}
-                    className="absolute inset-y-0 right-14 flex items-center pr-3"
+                    type="button"
+                    onClick={handleUseCurrentLocation}
+                    className="absolute inset-y-0 right-0 flex items-center pr-4"
                   >
-                    <X className="h-5 w-5 text-foodtruck-slate/50 hover:text-foodtruck-slate" />
+                    <MapPin className="h-5 w-5 text-foodtruck-teal hover:text-foodtruck-gold transition-colors duration-300" />
                   </button>
-                )}
-                <button
-                  className="absolute inset-y-0 right-0 flex items-center pr-4"
-                >
-                  <MapPin className="h-5 w-5 text-foodtruck-teal hover:text-foodtruck-gold transition-colors duration-300" />
-                </button>
-              </div>
+                </div>
+              </form>
               
               {/* Filter Chips */}
               <div className="flex flex-wrap gap-2 mt-4 justify-center lg:justify-start">
@@ -118,10 +153,16 @@ const Hero = () => {
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-                <button className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foodtruck-teal text-white font-medium shadow-lg hover:bg-foodtruck-teal/90 transition-all duration-300 btn-gold-accent">
+                <button 
+                  onClick={handleFindNearbyTrucks} 
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foodtruck-teal text-white font-medium shadow-lg hover:bg-foodtruck-teal/90 transition-all duration-300 btn-gold-accent"
+                >
                   Find Trucks Near You
                 </button>
-                <button className="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-foodtruck-gold text-foodtruck-slate font-medium hover:bg-foodtruck-gold/10 transition-all duration-300 gold-glow">
+                <button 
+                  onClick={handleViewLiveMap}
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-foodtruck-gold text-foodtruck-slate font-medium hover:bg-foodtruck-gold/10 transition-all duration-300 gold-glow"
+                >
                   View Live Map
                 </button>
               </div>

@@ -18,6 +18,16 @@ const Index = () => {
     }
   };
 
+  useEffect(() => {
+    // Check if URL has a hash and scroll to that section
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1);
+      setTimeout(() => {
+        scrollToElement(id);
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
