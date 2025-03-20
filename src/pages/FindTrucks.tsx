@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { MapPin, Filter, List, Grid3X3, Search, X, ChevronDown } from 'lucide-react';
+import { MapPin, Filter, List, Grid3X3, Search, X, ChevronDown, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import TruckMap from '@/components/TruckMap';
 import FoodTruckCard from '@/components/FoodTruckCard';
