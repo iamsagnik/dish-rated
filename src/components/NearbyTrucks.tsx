@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import FoodTruckCard from './FoodTruckCard';
 import TruckMap from './TruckMap';
@@ -8,7 +7,7 @@ import { MapPin, List, X } from 'lucide-react';
 // Mock data for nearby food trucks
 const nearbyTrucks = [
   {
-    id: '1',
+    id: 'taco-haven',
     name: 'Taco Haven',
     image: 'https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
     cuisine: 'Mexican',
@@ -19,7 +18,7 @@ const nearbyTrucks = [
     waitTime: '5 min',
   },
   {
-    id: '2',
+    id: 'seoul-food',
     name: 'Seoul Food',
     image: 'https://images.unsplash.com/photo-1509315811345-672d83ef2fbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
     cuisine: 'Korean',
@@ -30,7 +29,7 @@ const nearbyTrucks = [
     waitTime: '10 min',
   },
   {
-    id: '3',
+    id: 'curry-cruiser',
     name: 'Curry Cruiser',
     image: 'https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
     cuisine: 'Indian',
@@ -41,7 +40,7 @@ const nearbyTrucks = [
     waitTime: '15 min',
   },
   {
-    id: '4',
+    id: 'pizza-wheels',
     name: 'Pizza Wheels',
     image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     cuisine: 'Italian',

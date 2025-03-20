@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 // Mock data for trending food trucks with Indian names
 const trendingTrucks = [
   {
-    id: '5',
+    id: 'masala-magic',
     name: 'Masala Magic',
     image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2099&q=80',
     cuisine: 'North Indian',
@@ -17,7 +17,7 @@ const trendingTrucks = [
     featured: true,
   },
   {
-    id: '6',
+    id: 'chaat-chowk',
     name: 'Chaat Chowk',
     image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80',
     cuisine: 'Street Food',
@@ -26,7 +26,7 @@ const trendingTrucks = [
     featured: true,
   },
   {
-    id: '7',
+    id: 'mithai-junction',
     name: 'Mithai Junction',
     image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2014&q=80',
     cuisine: 'Dessert',
@@ -35,7 +35,7 @@ const trendingTrucks = [
     featured: false,
   },
   {
-    id: '8',
+    id: 'dosa-darbar',
     name: 'Dosa Darbar',
     image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     cuisine: 'South Indian',
@@ -44,7 +44,7 @@ const trendingTrucks = [
     featured: false,
   },
   {
-    id: '9',
+    id: 'paratha-paradise',
     name: 'Paratha Paradise',
     image: 'https://images.unsplash.com/photo-1541845157-a6d2d100c931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     cuisine: 'North Indian',
@@ -53,7 +53,7 @@ const trendingTrucks = [
     featured: false,
   },
   {
-    id: '10',
+    id: 'lassi-lovers',
     name: 'Lassi Lovers',
     image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
     cuisine: 'Beverages',

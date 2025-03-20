@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Heart, Star, Clock, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -118,9 +117,9 @@ const FoodTruckCard = ({
             </span>
           )}
           
-          <button className="text-foodtruck-teal font-medium hover:text-foodtruck-gold transition-colors duration-300 text-sm">
+          <Link to={`/trucks/${id}`} className="text-foodtruck-teal font-medium hover:text-foodtruck-gold transition-colors duration-300 text-sm">
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
