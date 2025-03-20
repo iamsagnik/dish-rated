@@ -115,8 +115,12 @@ const UpcomingEvents = () => {
         </div>
         
         <div className="mt-8 text-center">
-          <Link to="/events" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foodtruck-teal text-white font-medium shadow-lg hover:bg-foodtruck-slate transition-colors">
-            View All Events
+          <Link 
+            to="/events" 
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-foodtruck-teal text-white font-medium shadow-lg hover:bg-foodtruck-slate transition-colors group relative overflow-hidden"
+          >
+            <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-full bg-foodtruck-gold group-hover:translate-x-0"></span>
+            <span className="relative">View All Events</span>
           </Link>
         </div>
       </div>

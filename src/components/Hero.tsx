@@ -141,7 +141,7 @@ const Hero = () => {
               </div>
               
               {/* Floating elements - Top Rated made to move slower */}
-              <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 transform -rotate-3 animate-float" style={{ animationDuration: '6s' }}>
+              <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-lg p-3 transform -rotate-3 animate-float" style={{ animationDuration: '10s' }}>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
                     <span className="text-white font-bold">4.9</span>

@@ -2,30 +2,32 @@
 import React, { useState } from 'react';
 import FoodTruckCard from './FoodTruckCard';
 import { cn } from '@/lib/utils';
+import { toast } from '@/components/ui/use-toast';
+import { useNavigate } from 'react-router-dom';
 
-// Mock data for trending food trucks
+// Mock data for trending food trucks with Indian names
 const trendingTrucks = [
   {
     id: '5',
-    name: 'Burger Royale',
+    name: 'Masala Magic',
     image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2099&q=80',
-    cuisine: 'American',
+    cuisine: 'North Indian',
     rating: 4.9,
     reviewCount: 213,
     featured: true,
   },
   {
     id: '6',
-    name: 'Green Machine',
+    name: 'Chaat Chowk',
     image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80',
-    cuisine: 'Vegan',
+    cuisine: 'Street Food',
     rating: 4.7,
     reviewCount: 156,
     featured: true,
   },
   {
     id: '7',
-    name: 'Sweet Tooth',
+    name: 'Mithai Junction',
     image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2014&q=80',
     cuisine: 'Dessert',
     rating: 4.8,
@@ -34,25 +36,25 @@ const trendingTrucks = [
   },
   {
     id: '8',
-    name: 'Sushi Express',
+    name: 'Dosa Darbar',
     image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    cuisine: 'Japanese',
+    cuisine: 'South Indian',
     rating: 4.6,
     reviewCount: 124,
     featured: false,
   },
   {
     id: '9',
-    name: 'Mediterranean Magic',
+    name: 'Paratha Paradise',
     image: 'https://images.unsplash.com/photo-1541845157-a6d2d100c931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    cuisine: 'Mediterranean',
+    cuisine: 'North Indian',
     rating: 4.5,
     reviewCount: 97,
     featured: false,
   },
   {
     id: '10',
-    name: 'Smoothie Oasis',
+    name: 'Lassi Lovers',
     image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
     cuisine: 'Beverages',
     rating: 4.4,
@@ -72,6 +74,20 @@ const filterCategories = [
 
 const TrendingTrucks = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const navigate = useNavigate();
+  
+  const handleFilterClick = (filterId: string) => {
+    setActiveFilter(filterId);
+    
+    toast({
+      title: "Filter Applied",
+      description: `Showing ${filterId === 'all' ? 'all food trucks' : filterId + ' food trucks'}`,
+    });
+  };
+  
+  const handleExploreAll = () => {
+    navigate('/find-trucks');
+  };
   
   return (
     <section className="py-16 bg-white">
@@ -93,7 +109,7 @@ const TrendingTrucks = () => {
                     ? "bg-foodtruck-teal text-white shadow-md scale-105"
                     : "bg-gray-100 text-foodtruck-slate hover:bg-gray-200"
                 )}
-                onClick={() => setActiveFilter(category.id)}
+                onClick={() => handleFilterClick(category.id)}
               >
                 {category.label}
               </button>
@@ -123,8 +139,12 @@ const TrendingTrucks = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <button className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-foodtruck-teal text-foodtruck-teal font-medium hover:bg-foodtruck-teal hover:text-white transition-colors">
-            Explore All Trending Trucks
+          <button 
+            onClick={handleExploreAll}
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-foodtruck-teal text-foodtruck-teal font-medium hover:bg-foodtruck-teal hover:text-white transition-colors group relative overflow-hidden"
+          >
+            <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-full bg-foodtruck-gold group-hover:translate-x-0"></span>
+            <span className="relative">Explore All Trending Trucks</span>
           </button>
         </div>
       </div>

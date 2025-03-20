@@ -4,6 +4,7 @@ import { Calendar, MapPin, Users, Bell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { toast } from '@/components/ui/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 interface EventCardProps {
   id: string;
@@ -24,10 +25,13 @@ const EventCard = ({
   truckCount,
   className,
 }: EventCardProps) => {
+  const navigate = useNavigate();
+
   const handleViewDetails = () => {
+    navigate(`/events?event=${id}`);
     toast({
       title: "Event Details",
-      description: `Viewing details for "${title}" (Coming soon)`,
+      description: `Viewing details for "${title}"`,
     });
   };
 
@@ -90,9 +94,9 @@ const EventCard = ({
           
           <button 
             onClick={handleNotifyMe}
-            className="inline-flex items-center rounded-full border border-foodtruck-teal px-3 py-1 text-xs font-medium text-foodtruck-teal hover:bg-foodtruck-teal hover:text-white transition-colors"
+            className="inline-flex items-center rounded-full border border-foodtruck-teal px-3 py-1 text-xs font-medium text-foodtruck-teal hover:bg-foodtruck-teal hover:text-white transition-colors group"
           >
-            <Bell className="mr-1 h-3 w-3" />
+            <Bell className="mr-1 h-3 w-3 group-hover:text-white" />
             Notify Me
           </button>
         </div>
