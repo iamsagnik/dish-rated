@@ -9,6 +9,7 @@ import FindTrucks from "./pages/FindTrucks";
 import TruckDetails from "./pages/TruckDetails";
 import Events from "./pages/Events";
 import VendorLogin from "./pages/VendorLogin";
+import UserLogin from "./pages/UserLogin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/trucks/:id" element={<TruckDetails />} />
           <Route path="/events" element={<Events />} />
           <Route path="/vendor-login" element={<VendorLogin />} />
+          <Route path="/login" element={<UserLogin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
