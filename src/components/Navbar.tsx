@@ -65,7 +65,7 @@ const Navbar = () => {
               </svg>
             </button>
             <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-              <Link to="/about" className="block px-4 py-2 text-sm text-foodtruck-slate hover:bg-foodtruck-lightgray">
+              <Link to="/aboutus" className="block px-4 py-2 text-sm text-foodtruck-slate hover:bg-foodtruck-lightgray">
                 About Us
               </Link>
               <Link to="/sustainability" className="block px-4 py-2 text-sm text-foodtruck-slate hover:bg-foodtruck-lightgray">
@@ -132,7 +132,7 @@ const Navbar = () => {
               Events
             </Link>
             <Link 
-              to="/about" 
+              to="/aboutus" 
               className="block py-2 text-foodtruck-slate hover:text-foodtruck-teal transition-colors"
               onClick={() => setIsOpen(false)}
             >

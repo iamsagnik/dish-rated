@@ -11,6 +11,9 @@ import Events from "./pages/Events";
 import VendorLogin from "./pages/VendorLogin";
 import UserLogin from "./pages/UserLogin";
 import NotFound from "./pages/NotFound";
+import Blog from "./pages/Blog";
+import About from "./pages/AboutUs";
+import Sustainability from "./pages/Sustainability";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +30,9 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/vendor-login" element={<VendorLogin />} />
           <Route path="/login" element={<UserLogin />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/aboutus" element={<About />} />
+          <Route path="/sustainability" element={<Sustainability />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
