@@ -85,7 +85,7 @@ const Navbar = () => {
               Vendor
             </Link>
             <Link 
-              to="/profile" 
+              to="/login" 
               className="inline-flex items-center rounded-full bg-foodtruck-teal px-4 py-1.5 text-sm font-medium text-white hover:bg-foodtruck-slate transition-colors"
             >
               <User className="mr-1.5 h-3.5 w-3.5" />
@@ -162,7 +162,7 @@ const Navbar = () => {
                 Vendor Login
               </Link>
               <Link 
-                to="/profile" 
+                to="/login" 
                 className="inline-flex items-center justify-center rounded-full bg-foodtruck-teal px-4 py-1.5 text-sm font-medium text-white hover:bg-foodtruck-slate transition-colors"
                 onClick={() => setIsOpen(false)}
               >
